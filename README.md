@@ -7,6 +7,8 @@ The monitor combines the installed distribution's logo, a digital clock,
 concentric clock rings, battery and CPU gauges, and compact sections for
 network, storage, memory and top processes. Headings are white, with cyan
 indicators and pale values. The background is fully transparent.
+The CPU gauge shows overall usage across all logical processors and the
+number of threads detected on the current machine.
 
 ## Install
 

@@ -217,12 +217,9 @@ function conky_draw()
     info(cr, 395, 'Frequency', value('freq_g') .. ' GHz')
     info(cr, 415, 'Processes', value('processes') .. ' / ' .. value('running_processes') .. ' running')
     text(cr, 10, 453, data.cpu_model or 'Processor', 11, PALE, nil, 195)
-    for i = 1, 2 do
-        local x = 261 + (i - 1) * 65
-        ring(cr, x, 448, 24, number('cpu cpu' .. i), 5)
-        text(cr, x, 452, value('cpu cpu' .. i) .. '%', 10, WHITE, 'center')
-        text(cr, x, 482, 'CPU ' .. i, 9, BLUE, 'center')
-    end
+    ring(cr, 296, 448, 28, number('cpu'), 5)
+    text(cr, 296, 452, value('cpu') .. '%', 11, WHITE, 'center')
+    text(cr, 296, 487, (data.cpu_threads or '1') .. ' THREADS', 9, BLUE, 'center', 105)
     rule(cr, 500)
 
     text(cr, 10, 523, 'NETWORK', 14, WHITE, nil, 340, true)

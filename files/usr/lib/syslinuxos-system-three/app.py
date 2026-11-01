@@ -229,6 +229,10 @@ def battery_percent(root=Path('/sys/class/power_supply')):
     return 'N/A'
 
 
+def cpu_threads():
+    return os.cpu_count() or 1
+
+
 def metrics(refresh=True):
     directory = runtime_dir()
     with (directory / 'metrics.lock').open('a') as lock:
@@ -247,7 +251,8 @@ def metrics(refresh=True):
         except (OSError, StopIteration):
             model = platform.machine()
         data = {'brand': brand, 'os_name': info.get('PRETTY_NAME', 'Linux'), 'cpu_model': model,
-                'cpu_temp': cpu_temperature(), 'battery_percent': battery_percent(),
+                'cpu_temp': cpu_temperature(), 'cpu_threads': cpu_threads(),
+                'battery_percent': battery_percent(),
                 'interface': interface, 'local_ip': address, **public}
         atomic_write(directory / 'metrics.tsv', ''.join(key + '\t' + safe_text(value) + '\n' for key, value in data.items()))
 

@@ -24,6 +24,15 @@ class LayoutTests(unittest.TestCase):
             self.assertEqual(app.layout(1920,1080,value),app.layout(1920,1080))
 
 
+class CpuTests(unittest.TestCase):
+    def test_thread_count_tracks_the_current_machine(self):
+        for count in [1, 2, 16, 128]:
+            with patch.object(app.os, 'cpu_count', return_value=count):
+                self.assertEqual(app.cpu_threads(), count)
+        with patch.object(app.os, 'cpu_count', return_value=None):
+            self.assertEqual(app.cpu_threads(), 1)
+
+
 class LogoTests(unittest.TestCase):
     def test_syslinuxos_prefers_its_own_logo_over_debian_heritage(self):
         with tempfile.TemporaryDirectory() as temporary:
