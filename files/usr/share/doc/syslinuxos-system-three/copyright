@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: SysLinuxOS-System-Three
 Upstream-Contact: Franco Conidi <fconidi@gmail.com>
-Source: https://github.com/fconidi/syslinuxos-system-three
+Source: https://github.com/fconidi/syslinuxos-conky-system-three
 
 Files: *
 Copyright: 2026 Franco Conidi <fconidi@gmail.com>

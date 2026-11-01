@@ -22,7 +22,7 @@ sudo apt install syslinuxos-system-three
 Or install the downloaded package with APT:
 
 ```sh
-sudo apt install ./syslinuxos-system-three_0.1.1_all.deb
+sudo apt install ./syslinuxos-system-three_0.1.2_all.deb
 ```
 
 The shared `syslinuxos-conky-menu` dependency supplies the Conky submenu and

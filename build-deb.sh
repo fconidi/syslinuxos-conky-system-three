@@ -29,7 +29,7 @@ Architecture: all
 Depends: conky-all, python3 (>= 3.10), ca-certificates, fonts-dejavu-core, iproute2, python3-gi, gir1.2-gdkpixbuf-2.0, librsvg2-common, syslinuxos-conky-menu (>= 0.1.1)
 Recommends: desktop-base, x11-xserver-utils, x11-utils
 Maintainer: Franco Conidi <fconidi@gmail.com>
-Homepage: https://github.com/fconidi/syslinuxos-system-three
+Homepage: https://github.com/fconidi/syslinuxos-conky-system-three
 Installed-Size: $INSTALLED_SIZE
 Description: Transparent SysLinuxOS-System-Three desktop monitor
  Distribution logo, digital clock and cyan rings for battery, CPU,
