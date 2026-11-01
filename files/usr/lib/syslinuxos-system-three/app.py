@@ -136,7 +136,7 @@ def public_info(route, refresh=True):
 
 def fetch_url(url):
     try:
-        request = Request(url, headers={'User-Agent': 'SysLinuxOS-System-Three/0.1.0'})
+        request = Request(url, headers={'User-Agent': 'SysLinuxOS-System-Three/0.1.1'})
         with urlopen(request, timeout=3) as response:
             return response.read(512).decode('utf-8', errors='replace').strip()
     except (OSError, ValueError):
