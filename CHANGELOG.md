@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Name the menu entries Start Conky-System-Three and Stop Conky-System-Three in every locale.
+
 ## 0.1.1
 
 - Show total CPU load and the detected logical processor count instead of two fixed core gauges.

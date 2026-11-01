@@ -30,9 +30,8 @@ launcher icon. It must also be available when installing a downloaded package.
 
 ## Use
 
-Open **System Tools > Conky > Start SysLinuxOS-System-Three** or
-**Stop SysLinuxOS-System-Three**. Italian entries are **Avvia SysLinuxOS-System-Three** and
-**Ferma SysLinuxOS-System-Three**.
+Open **System Tools > Conky > Start Conky-System-Three** or
+**Stop Conky-System-Three**. The same menu labels are shown in every locale.
 
 ```sh
 syslinuxos-system-three start

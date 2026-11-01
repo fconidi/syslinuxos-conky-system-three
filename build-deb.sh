@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 PKG_NAME=syslinuxos-system-three
-PKG_VERSION=0.1.1
+PKG_VERSION=0.1.2
 WORKDIR="$(cd "$(dirname "$0")" && pwd)"
 OUTPUT="${1:-$WORKDIR/dist}"
 mkdir -p "$OUTPUT"
