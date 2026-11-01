@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Start SysLinuxOS-System-Three
+Name[it]=Avvia SysLinuxOS-System-Three
+Exec=syslinuxos-system-three start
+StartupNotify=false
+Terminal=false
+Icon=syslinuxos-conky
+Categories=X-SysLinuxOS-Conky;

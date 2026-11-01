@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Stop SysLinuxOS-System-Three
+Name[it]=Ferma SysLinuxOS-System-Three
+Exec=syslinuxos-system-three stop
+StartupNotify=false
+Terminal=false
+Icon=syslinuxos-conky
+Categories=X-SysLinuxOS-Conky;
