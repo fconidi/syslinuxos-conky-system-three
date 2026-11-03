@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
-PKG_NAME=syslinuxos-system-three
-PKG_VERSION=0.1.2
+PKG_NAME=syslinuxos-conky-system-three
+PKG_VERSION=0.2.0
 WORKDIR="$(cd "$(dirname "$0")" && pwd)"
 OUTPUT="${1:-$WORKDIR/dist}"
 mkdir -p "$OUTPUT"
@@ -13,7 +13,7 @@ find "$STAGING" -type d -name __pycache__ -prune -exec rm -rf -- {} +
 find "$STAGING" -type f -name '*.py[co]' -delete
 find "$STAGING" -type d -exec chmod 755 {} +
 find "$STAGING" -type f -exec chmod 644 {} +
-chmod 755 "$STAGING/usr/bin/syslinuxos-system-three"
+chmod 755 "$STAGING/usr/bin/syslinuxos-conky-system-three"
 mkdir -p "$STAGING/DEBIAN"
 cp "$WORKDIR/README.md" "$STAGING/usr/share/doc/$PKG_NAME/README.md"
 cp "$WORKDIR/CHANGELOG.md" "$STAGING/usr/share/doc/$PKG_NAME/changelog"
@@ -27,6 +27,8 @@ Section: x11
 Priority: optional
 Architecture: all
 Depends: conky-all, python3 (>= 3.10), ca-certificates, fonts-dejavu-core, iproute2, python3-gi, gir1.2-gdkpixbuf-2.0, librsvg2-common, syslinuxos-conky-menu (>= 0.1.1)
+Replaces: syslinuxos-system-three (<< 0.2.0)
+Breaks: syslinuxos-system-three (<< 0.2.0)
 Recommends: desktop-base, x11-xserver-utils, x11-utils
 Maintainer: Franco Conidi <fconidi@gmail.com>
 Homepage: https://github.com/fconidi/syslinuxos-conky-system-three
@@ -36,6 +38,21 @@ Description: Transparent SysLinuxOS-System-Three desktop monitor
  storage, memory and network information.
  Automatically scales all visual elements to the monitor resolution.
 CONTROL
-echo '/etc/conky/syslinuxos-system-three.conf' > "$STAGING/DEBIAN/conffiles"
+echo '/etc/conky/syslinuxos-conky-system-three.conf' > "$STAGING/DEBIAN/conffiles"
+cat > "$STAGING/DEBIAN/preinst" <<'PREINST'
+#!/bin/sh
+set -e
+case "$1" in
+    install|upgrade)
+        OLD=/etc/conky/syslinuxos-system-three.conf
+        NEW=/etc/conky/syslinuxos-conky-system-three.conf
+        if [ -f "$OLD" ] && [ ! -e "$NEW" ]; then
+            cp -p "$OLD" "$NEW"
+        fi
+        ;;
+esac
+exit 0
+PREINST
+chmod 755 "$STAGING/DEBIAN/preinst"
 (cd "$STAGING" && find . -type f -not -path './DEBIAN/*' -printf '%P\n' | sort | xargs -d '\n' md5sum > DEBIAN/md5sums)
 dpkg-deb --root-owner-group --build "$STAGING" "$OUTPUT/${PKG_NAME}_${PKG_VERSION}_all.deb"

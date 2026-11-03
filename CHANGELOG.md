@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.0
+
+- Rename the package to `syslinuxos-conky-system-three`; `syslinuxos-system-three` remains as a transitional package.
+- The command, configuration template and launchers now use the `syslinuxos-conky-system-three` name; an edited configuration is carried over.
+
 ## 0.1.2
 
 - Name the menu entries Start Conky-System-Three and Stop Conky-System-Three in every locale.

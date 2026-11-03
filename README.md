@@ -16,13 +16,13 @@ With the SysLinuxOS APT repository configured:
 
 ```sh
 sudo apt update
-sudo apt install syslinuxos-system-three
+sudo apt install syslinuxos-conky-system-three
 ```
 
 Or install the downloaded package with APT:
 
 ```sh
-sudo apt install ./syslinuxos-system-three_0.1.2_all.deb
+sudo apt install ./syslinuxos-conky-system-three_0.1.2_all.deb
 ```
 
 The shared `syslinuxos-conky-menu` dependency supplies the Conky submenu and
@@ -34,9 +34,9 @@ Open **System Tools > Conky > Start Conky-System-Three** or
 **Stop Conky-System-Three**. The same menu labels are shown in every locale.
 
 ```sh
-syslinuxos-system-three start
-syslinuxos-system-three stop
-syslinuxos-system-three status
+syslinuxos-conky-system-three start
+syslinuxos-conky-system-three stop
+syslinuxos-conky-system-three status
 ```
 
 The panel is centered at the right edge. It is intended as an alternative to
@@ -47,7 +47,7 @@ monitor's resolution. Restart after changing the resolution. An optional
 manual scale is available:
 
 ```sh
-CONKY_SYSTEM_THREE_SCALE=1.2 syslinuxos-system-three start
+CONKY_SYSTEM_THREE_SCALE=1.2 syslinuxos-conky-system-three start
 ```
 
 The distribution is identified through `/etc/os-release`. SysLinuxOS uses its
@@ -65,7 +65,7 @@ ISP from IPinfo every hour. Requests use HTTPS and three-second timeouts.
 Network lookups run in a background thread and use a private cache, keeping
 the clock and meters responsive. Unavailable values are shown as `N/A`.
 
-The editable template is `/etc/conky/syslinuxos-system-three.conf`; dpkg preserves
+The editable template is `/etc/conky/syslinuxos-conky-system-three.conf`; dpkg preserves
 edits across upgrades. A compositing window manager provides full alpha
 transparency.
 
@@ -80,3 +80,7 @@ The package is produced in `dist/`.
 ## License
 
 Copyright 2026 Franco Conidi. GPL-3.0-or-later; see [LICENSE](LICENSE).
+
+## Renamed from syslinuxos-system-three
+
+Since 0.2.0 the package is called `syslinuxos-conky-system-three`, like the other SysLinuxOS Conky themes. The old name is kept as an empty transitional package, so `apt upgrade` migrates existing installs. The command is now `syslinuxos-conky-system-three` and the template `/etc/conky/syslinuxos-conky-system-three.conf`; an edited template is carried over.

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Stop Conky-System-Three
-Exec=syslinuxos-system-three stop
+Exec=syslinuxos-conky-system-three stop
 StartupNotify=false
 Terminal=false
 Icon=syslinuxos-conky

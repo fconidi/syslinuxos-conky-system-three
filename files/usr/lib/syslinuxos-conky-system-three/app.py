@@ -17,8 +17,8 @@ import time
 from urllib.request import Request, urlopen
 
 PROC = Path('/proc')
-TEMPLATE = Path('/etc/conky/syslinuxos-system-three.conf')
-HELPER = '/usr/bin/syslinuxos-system-three'
+TEMPLATE = Path('/etc/conky/syslinuxos-conky-system-three.conf')
+HELPER = '/usr/bin/syslinuxos-conky-system-three'
 
 
 def output(command):
@@ -259,7 +259,7 @@ def metrics(refresh=True):
 
 def render_config(width, height):
     replacements = {**layout(width, height, os.environ.get('CONKY_SYSTEM_THREE_SCALE')),
-                    'helper': shlex.quote(HELPER), 'drawing': '/usr/lib/syslinuxos-system-three/drawing.lua'}
+                    'helper': shlex.quote(HELPER), 'drawing': '/usr/lib/syslinuxos-conky-system-three/drawing.lua'}
     text = TEMPLATE.read_text()
     for key, value in replacements.items():
         text = text.replace('@' + key.upper() + '@', str(value))
@@ -269,7 +269,7 @@ def render_config(width, height):
 def runtime_dir():
     runtime = os.environ.get('XDG_RUNTIME_DIR')
     base = Path(runtime) if runtime else Path(os.environ.get('XDG_CACHE_HOME', Path.home() / '.cache'))
-    directory = base / 'syslinuxos-system-three'
+    directory = base / 'syslinuxos-conky-system-three'
     directory.mkdir(mode=0o700, parents=True, exist_ok=True)
     if directory.is_symlink() or directory.stat().st_uid != os.getuid():
         raise RuntimeError('The runtime directory must belong to the current user.')

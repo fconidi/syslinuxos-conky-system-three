@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-SOURCE = Path(__file__).resolve().parents[1] / 'files/usr/lib/syslinuxos-system-three/app.py'
+SOURCE = Path(__file__).resolve().parents[1] / 'files/usr/lib/syslinuxos-conky-system-three/app.py'
 spec = importlib.util.spec_from_file_location('app', SOURCE)
 app = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(app)
